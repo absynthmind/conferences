@@ -1,0 +1,102 @@
+# Morning keynotes
+## Lessons learned, Europeana
+- shift from portal to platform
+- 10 lessons
+-- (just a) means to an end
+--- not just about technology
+-- getting buy-in is difficult
+--- explain in terms of business
+--- example applications help a lot
+--- ditto buzz of hackathons
+--- be able to measure success (quantitatively, qualitatively, succintly)
+-- Copyright is the killer
+--- most obscure part of ToS
+--- adopt standard licenses as much as possible
+-- from guerrilla to governor
+--- after the skunk works (Note: „after McGyver/A-team")
+--- APIs become truly part of the business (with all that it entails)
+-- Document your data
+--- Content is key. As it is to *web design*!!!
+--- Maybe more important then documenting the API itself
+--- Invest in data quality
+---- Do not problems in code; tackle at source
+-- Tell the world about the API
+--- AN API is like any other products, and it's not. Zen paradox
+--- it is (perceived as) a tool, not a end-user product
+--- devs become users too. "business" not equipped to handle that
+---- need dev outreach person
+---- all about communicating
+---- but don't over do it ("just give me the API key")
+-- Developers are users too!
+--- methods and processes of UX-design apply too!
+--- Treat dev portal as a consumer site
+-- There's a hackathon fatigue
+--- expand into long term outreach
+-- You will fail
+--- Business related pitfalls seems to be deeper
+
+## Absolute
+"constructing the world first API for drinks"
+"we sell vodka. But people drink drinks"
+- since iPhone, consumers are more inclined to use new services
+- really hard to manage all these devices (and app stores)
+- opening up the assets (recipes)
+-- tech backbone to connect the dots
+-- the "always on" layer ("google it")
+- created a sound data model
+-- that's where the magic is!!!
+-- images (scripted from recipes into photoshop)
+- API demo is awesome!!!!
+-- addb.aboslutedrinks.com/docs
+-- and youtube
+- key takeouts:
+-- we had data. But we now know and own the data!
+-- moving knowledge in-house enables product ownership in an agile methodology
+-- also moving to open collab and external innovation
+-- standardising the assets leads to technical creativity
+--- business gets this!!!
+
+## City SDK
+<less notes, as i was still recovering from the awesomeness of the 
+previous presentation>
+- citysdk.eu
+- ook hier weer: demo applicatie om de relatie tussen API en applicatie te visualiseren (voor niet-tech people)
+- bring across for people to understand what you *could do* with the API
+- based on Linked Data. Check!
+
+## Fireside chat
+
+# App Dev track
+## talking to mobile devs
+- api is an extension of a business model
+-- not of its own
+-- value creation, - delivery, -capture
+--- all 3 apis can help
+1. api is an it architecture
+2. product extension
+3. data harvesting
+4. dist. channel
+5. sales channel
+6. product by itself
+-- 3rd party devs are key
+- key q to get dev attentions
+-- not prog. lang., etc
+-- what do devs want to get done
+--- JTBD thinking
+--- + hard data on metrics, motives, outcomes
+--- segs: seeking revenue
+--- for self-improvement
+--- for product extension
+--- revenue is primary goal for 1/2 of devs
+--- there's a pyrimad of dev needs!!! check
+---- developereconomics.com/seg13
+- drop e-mail michael@visionmobile.com
+
+## full-stack js app dev
+- using titanium appcelerator
+
+## Web RTC
+- bringing together voip (and video, adn screen shraring) and web
+- direct websocket between peers 
+- servers are needed for signalling
+-- to set up connections between peers
