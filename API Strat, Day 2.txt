@@ -1,0 +1,384 @@
+# morning keynotes
+
+## Rackspace
+- the monolith days, and then the web came along
+- talking about apis is talking about modularity
+- whats make you pick an api (over another one)
+-- the way you pick any product
+- check autoscale
+- the city of apis (iso homesteads)
+-- consistency > novelty
+--- sf bart example (different track width)
+--- apicommons, json api, coll+ (access patterns)
+--- example: dedicated api for event feed, versus atom
+--- "mimic somebody else’s api"
+---- rackspace x-transaction-id <--- Stargate?
+---- kibana 
+---- zipkin <-- check
+--- helps in debugging too
+-- city analogy
+--- A’dam, sf are more easy to get things going
+--- at the price of debugging and latency
+
+## Twitter API
+"connecting to the pulse of"...
+- Bloody awesome preso design
+-- icon/fat line/text/thin line
+-- small logo bottom left corner
+-- background image
+- dataminr "uses people as a detection mechanism"
+- rest (as opposed to streaming) let you perform action on what happened
+
+## oauth.io, webshell
+- check webshell for aggregation
+- check apidays conf
+- scale the api econmy, but for what?
+-- apply standard company growing theory!
+-- from building internally to outsourcing
+-- Note: Christensen disruption theory!!!
+-- theory of the firm (check wikipedia)
+- observation: relatively little cap investment, for relative large ROI on assets!
+-- network effect theory?
+-- "B2B sharing economy"
+-- .. at worldwideweb speed and scale
+-- AirBnB, "appartment at a service"!
+- API is *more* than an App Prog Interface
+-- it's also a business, with a team/company behind it
+-- lego advertisement: lego plane and actual plane
+--- you can see the bricks
+--- or you can see the bigger picture!!!
+--- contract between consumer and provider (or "way to think")
+--- more bizz involvement than for Win32
+- Rousseau: "leave your natural freedom for civilian freedom"
+-- Spinoza: freedom is to do what you want, but want what you do
+- 3 leaps of faith that scaled the industry:
+-- patents (it scaled)
+-- shipping container (released to iso)
+-- cern www
+- making the leap of faith
+-- release a new resource
+-- transparency (french rail got only beter than ever)
+--- don't keep your dollars if the world is using coke caps
+--- fall out game
+-- accessibility
+-- interoperability
+--- oauth
+-- attribution, re-use and derived works
+--- make the origin of the data available
+--- people go and see the mona lisa in the louvre
+-- neutrality
+-- ToS, policy and changes
+--- open small and make it bigger (not the reverse)
+-- reliability
+--- enough people to support
+--- or open-source the server
+-- api commons
+- what is the graal?
+-- transform your users into practitioners
+--- Note: brand utilities???
+-- take the heavy weight of (big co's) shoulders
+- github/openapimanifesto
+- apiscene.com
+- journey
+-- from private to partner to open
+-- using the manifesto
+
+## politics of apis (Klout)
+- what is tos?
+-- almost a philosophy: heres what i want, heres what i dont want, etc
+-- its a code
+--- attribution
+--- rights and restrictions
+--- etc ...
+-- it all starts with "checking that box"
+-- guides your behaviour
+-- have a short version for consumers
+-- have a robots.json (machine readable tos)
+- providers that don’t have an api?
+-- scrape it? 
+-- the ethics of it!
+-- scraping cost for craiglist was prohibitive
+-- sure, personal data but in *their* presentation format
+-- could <> should
+- much talk about scraping
+- how can a provider convey trust
+-- we're past basic handshakes
+-- gentleman's agreement vs. robots.json
+-- certified partner program
+--- co-promote, recommend
+--- start "extending the hand"
+
+# API Dev track
+- needs for mobile apis
+-- fast
+--- < 300ms
+--- less calls
+--- rest might not be best
+---- need to update multiple objects
+--- sync is a must
+--- 3rd party api should be used by the server
+-- full-featured
+--- no longer a sub set of services
+--- "can we"..? Buld it, and it will get used
+--- "the website does X"...
+-- flexible
+--- products change over time
+--- optimise later; gun for payload structures first
+--- version based on payload
+- Design for UX
+-- 1 API, 1 screen (app does not have data)
+-- 1 save, 1 call
+--- cascading is bad
+-- diff clients, diff needs!!!
+
+- apiary, client-centric api dev
+-- dont expose impl. details
+--- don't impose your view
+--- start with the questions, not the answers!
+--- respect the client needs
+-- express intent!
+!!! prototyping server and client seems to be an issue
+--- T/BDD done right!
+---- doc serving as test
+!!! check Dredd testing 
+
+# API-First Dev, etsy
+- building an unified api for a multi-screen world
+- APIv2
+-- good
+--- kickstarted 3rd party community
+--- powers native apps
+--- serves needs of sellers
+-- the bad
+--- mirrors db schemas
+--- client dictates complexity
+--- rest not always best
+---- Note: again not supporting embedding!
+--- access control adds complexity (RBAC)
+-- APIv3
+--- domain resources, not db's
+---- include ancillary data
+---- listing includes links to images 
+--- push complexity to server!!!
+--- concurrency
+---- much faster responses. appalling to devs
+--- separate endpoints for clients!!!
+---- again perceived as „not rest” 
+--- explicit access control
+---- "perspective" in URL (endpoint)
+---- abstracts authentication
+---- 3 main ones: Public, Member, Shop
+-- API-first
+--- on v2, separation between api- en web controller
+--- on v3, website is consumer of api
+
+# Stripe, API versioning
+- maintain backwards incompatible changes separately
+-- Note: like Twillio
+-- clients have explicit api version assigned to them
+-- switched on "gates" in code
+--- if api_gate("feature") ...
+---- !!!!! have different delivery impls. for this ????
+--- great experience for developers
+--- not so great for code complexity
+---- not too bad a trade-off for an API company!
+
+- q on using not HTTP
+-- lowest common denominator
+--- everybody knows/loves HTTP/JSON
+-- exception: WebSockets
+--- too low-level
+-- but for internal APIs, yes
+
+-- Stripe uses collapsing feature 
+--- Etsy thought that to be to server intensive
+--- but what's the problem of bespoke endpoints not being rest?!?!?
+--- check Yammer vid van vorige conf over deployment !!!
+
+# Security track
+!!! check web service security book
+
+## securing apis
+- API keys in the clear
+-- in url
+- web threats
+-- rest
+--- injection
+--- overflow
+--- ddos
+--- json attacks
+- Models
+-- define what is not allowed
+-- define what is allowed
+--- better one
+--- json schema
+- Gateway
+-- mullet pattern
+--- simple at front
+--- bridge to more messy internals
+- API key auth
+-- a la amazon hmac   
+
+## securing api with oath & the neo-security stack
+- identity is central
+- `neo-security stack
+-- provisioning (SCIM)
+-- identities (JSON identity suite)
+-- federation (OpenID)
+-- delegated access (oAuth)
+-- authorization
+-- and XACML (for access control) cross-cutting
+- oauth2
+-- protocol of protocols
+-- basis for other specs
+-- scopes
+--- specify extent of tokens' usefulness
+--- listed on consent ui
+--- issued tokens may be more narrow than requested
+-- tokens
+--- access tokens - like a session
+--- refresh token -- like a password
+--- passing
+---- by value - use attrib in token
+---- by ref - user attribs are reference
+--- profiles
+---- bearer - like cash
+---- holder of key - like credit cards
+--- types
+---- ws-security, saml, jwt, etc
+---- custom (home-grown), (Oracle access manager), SiteMinder
+-- usage!
+--- not for authentication
+--- not for authorization
+--- delegation model
+
+## putting the hack in hackathons
+- hacking - "innovative misbehaving"
+-- it's all about possibilities!
+-- 2 sides of innovation; both sides are happening
+- artichoke
+-- lots of layers
+-- hackers will go to the heart directly
+-- viz snapchat
+--- used the api as designed
+- with apis the scale is so immense
+-- and we are not building the apps that get so used immensely
+-- others do
+- Security <> gateway and protocols
+- testing is actually mostly checking
+-- actually testing is using it innovative
+-- not constraint by what you expect from the sw
+-- hire hackers
+--- and listen the first time
+--- host a real hackathon
+---- to break things
+---- before you go out
+---- hacker love!!!
+
+## building an API security ecosystem, WSO2
+- Direct vs. brokered authentication
+- chained apis
+-- apis calling apis
+-- using saml tokens
+
+## how to protect data on the device
+- static code analysis on code. hmmm...
+- or how to prevent sensitive data from being saved on the device?
+- dito replay attacks
+- or what happens if the user is offline (in a tunnel)
+- ToS!!!
+- do monitor!
+- use a 4-party trust model. to clear the app as well!
+-- so certain apps might not get the data offline
+-- partners will      
+
+# Hypermedia track
+## Building an API from scratch
+- fuzzy standards
+- requirements to strive for
+-- simple, intuitive, consistent
+-- dev friendly
+-- explorable in a browser
+- api versioning
+-- url or header
+--- stripe: major version in url, date in the header
+- return a representation (on post, put, patch)
+- hypermedia: decision at run-time versus design-time
+- mooi plaatje van hal over resource state en links
+
+## breaking stuff as a service
+- why stress test an api?
+- load testing
+-- test under normal operating conditions
+- stress testing
+-- to make it fail
+- negative testing
+-- by taking resources away
+-- netflix chaos monkey
+- example loader.io
+- how does stress test differ for apis?
+-- for web tools!
+-- so? use a gatling-like thing?
+-- auth. schemes make this difficult
+-- categorisation of http responses
+-- header complexity
+-- traversal of links (in hypermedia)
+- another: blitz.io
+- jmeter
+-- but use jmeter standard plugins
+- use cloud-based testing
+
+## full-on hypermedia apis
+- with hydra
+- json-ld to describe properties
+-- could help in modelling(?)
+- hydra adds actions
+- have a look!!!
+
+- embedded resource do not caching of ind. resources
+
+# keynotes
+## Rise of distr. applications
+- Consumer-oriented talk
+- "you are building a dist. system" - Mark Cavage, ACM Queue
+-- but that's not our background!
+- out sourced code to 'third parties"
+-- together, that composes the application
+- Challenges:
+1. Getting a complete picture of your app
+-- where are the hot spots?
+-- what happens if the call expires?
+-- passing the TX id (per Rackspace) is a good one
+-- watch and log everything
+--- from the edges, not the hub
+
+2. Managing change
+-- prefer lighter abstractions
+--- listen to trafficandweb.io
+--- do not use a sdk!
+--- sdk tend to rev more frequently due to bugs or workarounds
+--- is it a client-sdk problem or sdk-api?
+--- ok for prototyping though!
+---- crucial for providers
+---- to help adoption
+----- for many platforms as possible
+----- as native as possible
+----- and well-documented
+----- and don't auto-generated
+--- or if there's no good http client (used to be for .Net)
+--- or if your building a client
+---- viz. Octokit
+--- or if complex apis
+---- viz. Dropbox sync API
+-- instead of sdk, smarter http client
+--- thin wrapper
+--- resolves service://aaa.com into http
+--- build in retries (so, no POST)
+
+3. High-fidelity testing
+-- based on real app's interactions
+
+## Raspberry Pi, fireside chat
+
+## Mike Amundsen
+- g.amund.com

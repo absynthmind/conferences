@@ -1,0 +1,99 @@
+# API Strat, Day 1
+
+## RAML Workshop
+- Basically, inject a "mocking" fase into creative pipeline
+- It's all about the interface. it's a store front!
+-- not the client, not the server
+-- doing so, enables parallel development
+-- allows early testing
+-- allows for early collaboration
+
+- how to design an api?
+-- design *for them* (or actually, for their users)..!!!
+
+- What to design
+-- The contract
+
+- revisit cucumber
+-- Note: balanced has Cuc tests!
+
+- Patterns allow to can request/response behaviour
+-- icm traits
+-- should allow for *an ubiquitous language*
+-- distribute as a library?
+
+## Mock (with SoapUI)
+- Why? To try it out!
+- Using free plugin (Ole Lensmar) to import RAML
+- check cloudhub.io
+
+## API Management (WSO2)
+- WSO2 engineering zit in Sri Lanka
+- Check apache stratos (PaaS)
+- Check "AppFactory"
+- Angle op monetization:
+-- ook voor intern gebruik
+-- over silos heen
+
+- API versus Service
+-- service deals with implementation
+-- API deals with subscription
+-- 2 different and distinct life cycles. NEVER MIX!
+-- you publish a service with an api
+-- you don’t need a service to create the api
+-- Note: Forrester D-A model!!!
+
+- Managing the API
+-- creating
+-- advertising
+-- making APIs subscribe-able
+-- associating SLAs (throttling, guaranteed ceiling, ...0
+-- securing APIs
+-- monetizing and analytics
+
+- API security
+-- extra aspect (wrt. web sites): calling into the south bound enterprise
+-- manage tokens 
+--- (which are like passwords)
+--- cannot spoof or replay
+--- always use ssl for transport
+--- use domain restrictions (to prevent replay)
+-- XACML for fine grained control
+--- can define oauth scope in XACML policies
+--- can do fine grained control (GET but not POST)
+-- JSON Web Tokens to pass auth information to back-end systems
+--- Note: can use for Sales Session context???
+
+- Versioning
+-- 2, 3 max out in the open
+-- lifecycle
+--- created
+--- published
+--- deprecated (no new users accepted)
+--- retired
+--- blocked (temporary, in case of an attack eg)
+
+- documentation
+-- samples, docs
+-- embedded testing (Note: like Swagger?)
+-- sandbox and production runtimes
+-- sdk (including security)
+
+- deployment
+
+- why metrics and analytics
+-- build confidence in api model
+-- understand the customer
+-- understand which versions to deprecate
+-- plan better
+-- whatever you do: capture *all events* right from the beginning
+
+-- analysis
+--- gather intelligence
+--- idee: farm out to external party
+--- wso2 uses thrift to publish events
+--- to publish to Cassandra
+
+-- also do realtime monitoring
+--- detecting usage patterns
+--- for fraud or otherwise (80% or 120% under or above pattern)
